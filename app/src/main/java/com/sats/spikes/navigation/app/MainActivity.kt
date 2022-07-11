@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App() {
+private fun App() {
   MaterialTheme {
   }
 }

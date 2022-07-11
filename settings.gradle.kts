@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google()
@@ -18,3 +20,11 @@ dependencyResolutionManagement {
 rootProject.name = "sats-navigation-spike"
 
 include(":app")
+
+include(":core:navigation")
+
+include(":features:book")
+include(":features:check-in")
+include(":features:clubs")
+include(":features:home")
+include(":features:profile")

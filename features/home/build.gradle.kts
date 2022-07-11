@@ -1,5 +1,5 @@
 plugins {
-  id("com.android.application")
+  id("com.android.library")
 
   kotlin("android")
   kotlin("kapt")
@@ -8,31 +8,22 @@ plugins {
 }
 
 android {
-  namespace = "com.sats.spikes.navigation.app"
+  namespace = "com.sats.spikes.navigation.features.home"
 
   compileSdk = 32
 
   defaultConfig {
     minSdk = 24
-    targetSdk = 32
-
-    versionCode = 1
-    versionName = "1.0"
-  }
-
-  buildTypes {
-    debug {
-      isMinifyEnabled = false
-    }
-
-    release {
-      isMinifyEnabled = true
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-    }
   }
 
   buildFeatures {
+    buildConfig = false
     compose = true
+  }
+
+  buildTypes {
+    debug {}
+    release {}
   }
 
   compileOptions {
@@ -56,21 +47,10 @@ android {
 }
 
 dependencies {
-  // Local projects
-  implementation(projects.core.navigation)
-  implementation(projects.features.book)
-  implementation(projects.features.checkIn)
-  implementation(projects.features.clubs)
-  implementation(projects.features.home)
-  implementation(projects.features.profile)
-
   // Accompanist
   implementation(libs.accompanist.insetsUi)
-  implementation(libs.accompanist.navigation.animation)
-  implementation(libs.accompanist.navigation.material)
 
   // AndroidX
-  implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.animation)
   implementation(libs.androidx.compose.foundation)
   implementation(libs.androidx.compose.material.icons)
@@ -78,18 +58,13 @@ dependencies {
   implementation(libs.androidx.compose.runtime.runtime)
   implementation(libs.androidx.compose.ui.tooling)
   implementation(libs.androidx.compose.ui.ui)
-  implementation(libs.androidx.hilt.navigation.compose)
   implementation(libs.androidx.lifecycle.viewModel)
   implementation(libs.androidx.lifecycle.viewModelCompose)
-  implementation(libs.androidx.navigation.compose)
   kapt(libs.androidx.hilt.compiler)
 
   // Dagger Hilt
   implementation(libs.dagger.hilt.runtime)
   kapt(libs.dagger.hilt.compiler)
-
-  // Material Design Components
-  implementation(libs.google.material)
 
   // Kotlin
   implementation(libs.kotlin.stdLib)
