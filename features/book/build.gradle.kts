@@ -47,6 +47,9 @@ android {
 }
 
 dependencies {
+  // Local projects
+  implementation(projects.core.navigation)
+
   // Accompanist
   implementation(libs.accompanist.insetsUi)
 
@@ -58,6 +61,7 @@ dependencies {
   implementation(libs.androidx.compose.runtime.runtime)
   implementation(libs.androidx.compose.ui.tooling)
   implementation(libs.androidx.compose.ui.ui)
+  implementation(libs.androidx.hilt.navigation.compose)
   implementation(libs.androidx.lifecycle.viewModel)
   implementation(libs.androidx.lifecycle.viewModelCompose)
   kapt(libs.androidx.hilt.compiler)
